@@ -58,4 +58,26 @@ function preencheTopTen(resJson2) {
     document.getElementById("conteudo2").innerHTML = tptAGTTBegin + contTT + tptAGTTEnd;
     console.log (tptAGTTBegin + contTT + tptAGTTEnd);
 
+    barraUsuario();
+
+}
+
+function barraUsuario(){
+    
+    var tptBarraUser = `<img src="**FOTO**" width="70px"> 
+                    **NOME** (**RACF**)`;
+    
+    var userLogado2 = localStorage.getItem("userDash");
+
+    var user = JSON.parse(userLogado2);
+
+    alert( tptBarraUser
+        .replace("**FOTO**",user.linkFoto)
+        .replace("**NOME**", user.nome)
+        .replace("**RACF**",user.racf));
+
+    document.getElementById("barraUser").innerHTML = tptBarraUser
+                                        .replace("**FOTO**",user.linkFoto)
+                                        .replace("**NOME**", user.nome)
+                                        .replace("**RACF**", user.racf.toUpperCase());   
 }
